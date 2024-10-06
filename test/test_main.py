@@ -9,6 +9,7 @@ class TestCalculator:
             (1, 2, 0.5, dos_not_raise),
             (5, -1, -5, dos_not_raise),
             (5, "-1", -5, pytest.raises(TypeError)),
+            (0, -1, -5, pytest.raises(ZeroDivisionError)),
         ]
     )
     def test_divide(self, x, y, res, expectation):
