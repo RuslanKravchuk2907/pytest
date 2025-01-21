@@ -13,9 +13,9 @@ class Response:
     def validate(self, schema):
         if isinstance(self.response_json, list):
             for item in self.response_json:
-                validate(item, schema)
+                validate(item)
         else:
-            validate(self.response_json, schema)
+            validate(self.response_json)
     def assert_status_code(self, status_code):
         if isinstance(status_code, list):
             assert self.response_status in status_code, GlobalErrorMessages.WRONG_STATUS_CODE.value
